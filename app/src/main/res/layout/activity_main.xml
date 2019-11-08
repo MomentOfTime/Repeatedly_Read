@@ -5,24 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <!--游戏主界面自定义控件-->
+    android:background="@drawable/background"
+    tools:context=".Activitys.Link">
 
 
     <LinearLayout
+        android:id="@+id/controlPanel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="380px"
         android:background="#1e72bb"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
 
         <!--控制游戏开始-->
         <Button
             android:id="@+id/startButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:background="@drawable/button_selector"/>
 
         <!--显示游戏剩余时间文本框-->
@@ -31,10 +32,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:text="剩余时间:60"
             android:textSize="20dp"
-            android:width="150px"
             android:textColor="#ff9"/>
 
     </LinearLayout>
+    <!--游戏主界面自定义控件-->
+    <com.example.repeatedly_read.Views.GameView
+        android:id="@+id/gameView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/controlPanel" />
 
 </RelativeLayout>

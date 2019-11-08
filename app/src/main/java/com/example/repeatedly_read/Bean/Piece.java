@@ -1,12 +1,14 @@
 package com.example.repeatedly_read.Bean;
 
+import android.graphics.Point;
+
 /**
  * 定义一个方块
  */
 public class Piece {
 
     //保存方块图片
-    private PieceImage image;
+    private PieceImage pieceImage;
 
     private int beginX;
 
@@ -21,12 +23,12 @@ public class Piece {
         this.indexY = indexY;
     }
 
-    public PieceImage getImage() {
-        return image;
+    public PieceImage getPieceImage() {
+        return pieceImage;
     }
 
-    public void setImage(PieceImage image) {
-        this.image = image;
+    public void setPieceImage(PieceImage image) {
+        this.pieceImage = image;
     }
 
     public int getBeginX() {
@@ -63,11 +65,17 @@ public class Piece {
 
     public boolean isSameImage(Piece other) {
 
-        if (image == null) {
-            if (other.image != null) {
+        if (pieceImage == null) {
+            if (other.pieceImage != null) {
                 return false;
             }
         }
-        return image.getImageId() == other.image.getImageId();
+        return pieceImage.getImageId() == other.pieceImage.getImageId();
     }
+
+    public Point getCenter(){
+        return new Point(getBeginX() +getPieceImage().getImage().getWidth()/2
+        ,getBeginY() + getPieceImage().getImage().getHeight() /2);
+    }
+
 }
